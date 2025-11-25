@@ -119,10 +119,8 @@ graph TD
 >> We welcome all contributions! Please submit a Pull Request. For major changes, open an Issue to discuss what you want to modify.
 
 ## 📞 Contact
+-> Author: Nguyen Nhat Nam Anh
 
--> Author: Nguyen Nhat Nam Anh
 -> Telegram: https://t.me/ctevclwar
--> Facebook: https://www.facebook.com/ng.xau.k25
--> Author: Nguyen Nhat Nam Anh
--> Telegram: https://t.me/ctevclwar
+
 -> Facebook: https://www.facebook.com/ng.xau.k25
