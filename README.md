@@ -112,11 +112,11 @@ graph TD
 
 ## ⚠️ Important Notice
 
->> This tool is intended solely for legal code protection purposes. The author is not responsible for any misuse!
+-> This tool is intended solely for legal code protection purposes. The author is not responsible for any misuse!
 
 ## 🤝 Contributing
 
->> We welcome all contributions! Please submit a Pull Request. For major changes, open an Issue to discuss what you want to modify.
+->> We welcome all contributions! Please submit a Pull Request. For major changes, open an Issue to discuss what you want to modify.
 
 ## 📞 Contact
 -> Author: Nguyen Nhat Nam Anh
