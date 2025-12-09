@@ -76,31 +76,29 @@ Random junk code is inserted into every block.
 
 ```mermaid
 graph TD
-    A[User Input Python Code] --> AA[Inject Anti-Tamper Layer]
-    AA --> AB[Inject Anti-Debug + Anti-Proxy + Anti-Customize]
-    AB --> AC[Inject Double Runtime Integrity Check]
+    A[Original Python Code] --> AA[Inject Anti-Tamper]
+    AA --> AB[Inject Anti-Debug and Anti-Proxy]
+    AB --> AC[Double Integrity Check]
 
-    AC --> B[AST Parse Source Code]
-    B --> C[JoinedStr → Raw String Transform (cv)]
-    C --> D[Hide Builtin Functions<br>(replace with getattr(builtins))]
+    AC --> B[AST Parse]
+    B --> C[F-String Transformation]
+    C --> D[Hide Builtins]
 
-    D --> E[Obfuscate Literals<br>strings → lambdas, int → 2010-i]
-    
-    E --> F[Junk Code Injection<br>(random if/while/lambda crash logic)]
+    D --> E[Obfuscate Literals]
+    E --> F[Inject Junk Code]
 
-    F --> G[AST Unparse to Python Source]
-
-    G --> H[Compile to Python Code Object]
-    H --> I[Marshal Serialize<br>(marshal.dumps)]
+    F --> G[Unparse AST to Python Source]
+    G --> H[Compile to Code Object]
+    H --> I[Marshal Serialization]
 
     I --> J[LZMA Compression]
     J --> K[Zlib Compression]
     K --> L[BZ2 Compression]
     L --> M[Base85 Encoding]
 
-    M --> N[Insert Encoded Bytecode Into Template (Lobby)]
-    N --> O[Rewrite OWNER, USER, GLOBAL CRC]
-    O --> P[Finalize Output File: obf-<name>.py]
+    M --> N[Insert Into Lobby Template]
+    N --> O[Write USER and CRC]
+    O --> P[Generate Final Obfuscated File]
 ```
 
 ## 🚀 Installation
