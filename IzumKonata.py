@@ -499,7 +499,7 @@ class __Konata__:
         if str(__import__("sys").version_info.major)+"."+str(__import__("sys").version_info.minor) != "{ver}":
             print(">> This code dont work in your python version")
             print(f'>> Your Current Python Version Is {{str(__import__("sys").version_info.major)+"."+str(__import__("sys").version_info.minor)}}. Please Install Python {ver} To Run The Program File!')
-            __import__('sys').exit(210)
+            __import__('sys').exit(__GLOBALS__)
         else:
             print(">> Loading...", end="\\r")
 
@@ -582,10 +582,10 @@ def _safe_source(obj):
         return ""
 
 def obfint(i):
-    haha=2010-i
+    haha=211-i
     lam3=ast.Lambda(_args(var_con_cak()),
         ast.Call(ast.Name("__Deobf__",ast.Load()),
-            [ast.BinOp(ast.Constant(2010),ast.Sub(),ast.Constant(haha))],[]))
+            [ast.BinOp(ast.Constant(211),ast.Sub(),ast.Constant(haha))],[]))
     lam2=ast.Lambda(_args(var_con_cak()),
         ast.Call(lam3,[ast.Constant("AnhNguyenCoder")],[]))
     lam1=ast.Lambda(_args(var_con_cak()),
