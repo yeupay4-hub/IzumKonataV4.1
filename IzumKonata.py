@@ -479,9 +479,9 @@ __CMT__ = {{
 
 class __Izumkonata__:
     def __init__(anhnguyencoder, *{args}, **{kwds}):
-        setattr(anhnguyencoder, "Cybers5", {enc('marshal')}); setattr(anhnguyencoder, "Cybers6", {cust}__huthuctu_{string}); setattr(anhnguyencoder, "Cybers7", {args}_lamba__{args})
+        setattr(anhnguyencoder, "{string}__Cybers5_{cust}", {enc('marshal')}); setattr(anhnguyencoder, "{string}__Cybers6_{cust}", {cust}__huthuctu_{string}); setattr(anhnguyencoder, "{string}__Cybers7_{cust}", {args}_lamba__{args})
     def __str__(anhnguyencoder, {arg_}):
-        getattr(anhnguyencoder, "Cybers7")(getattr(AnhNguyenCoder(getattr(anhnguyencoder, "Cybers5")), {enc("loads")})({arg_}), globals())
+        getattr(anhnguyencoder, "{string}__Cybers7_{cust}")(getattr(AnhNguyenCoder(getattr(anhnguyencoder, "{string}__Cybers5_{cust}")), {enc("loads")})({arg_}), globals())
     def __call__(anhnguyencoder, *{args}, **{kwds}):
         if 0: return Anhnguyen.{cust}({cust}[0]) if {args} else Anhnguyen
         IZUMKONATA = __{kwds}__({args}[0]).__{args}__(); anhnguyencoder.__str__(IZUMKONATA)
