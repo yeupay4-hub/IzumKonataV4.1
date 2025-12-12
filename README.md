@@ -3,7 +3,7 @@
 
 -> Using this obf for bad purposes, the owner will not be responsible!
 
-## 🌀 IzumKonata Obfuscator
+## 🌀 IzumKonata Obfuscator.
 
 -> High-Speed Obfuscation Engine – Advanced Anti-Tamper – Multi-Layer Compression
 
@@ -11,9 +11,9 @@
 
 -> A powerful, high‑speed Python obfuscator with multi‑layer protection, featuring anti-debug, anti-crack like http toolkit software,... anti-tamper, anti-hook requests, and a fully customized encryption system.
 
-## 🌟 Outstanding features
+## 🌟 Outstanding features.
 
-🔐 1. Obfuscation According to AST
+# 🔐 1. Obfuscation According to AST
 
 -> IzumKonata operates directly on AST (Abstract Syntax Tree), helping:
 
@@ -55,24 +55,24 @@
 
 → Result: extremely hard to analyze and nearly unreadable.
 
-## 🧩 4. Built-in Protection (Hide Builtins)
+## 🧩 4. Built-in Protection (Hide Builtins).
 
 All built-in functions such as eval, exec, print, len, ...
 are protected with anti-hook + anti-debug mechanisms.
 
-## 🗑 5. Junk Code Injection
+## 🗑 5. Junk Code Injection.
 
 Random junk code is inserted into every block.
 
-## ✨ 6. F-String to Join Conversion
+## ✨ 6. F-String to Join Conversion.
 
 -> Prevents grepping or detection of real content.
 
-## 🎨 7. Beautiful Banner + CLI
+## 🎨 7. Beautiful Banner + CLI.
 
 -> Uses pystyle to create an attractive command-line interface.
 
-## 📊 Obfuscation Process
+## 📊 Obfuscation Process.
 
 ```mermaid
 graph TD
@@ -101,13 +101,13 @@ graph TD
     O --> P[Generate Final Obfuscated File]
 ```
 
-## 🚀 Installation
+## 🚀 Installation.
 
 Python 3.6 or later
 
 Module: pystyle (auto install if missing)
 
-## 📖 Usage
+## 📖 Usage.
 
 -> Run the obfuscator depending on your device:
 
@@ -132,11 +132,11 @@ Module: pystyle (auto install if missing)
 -> Saved file name: obf-your_script.py
 -> Execution time: 0.00s
 
-## ⚠️ Important Notice
+## ⚠️ Important Notice!
 
 -> This tool is intended solely for legal code protection purposes. The author is not responsible for any misuse!
 
-## 🤝 Contributing
+## 🤝 Contributing.
 
 ->> We welcome all contributions! Please submit a Pull Request. For major changes, open an Issue to discuss what you want to modify.
 
