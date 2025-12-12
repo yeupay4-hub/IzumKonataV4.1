@@ -213,6 +213,24 @@ if __Konata__.__str__.__code__.co_firstlineno < 1:
     print(">> AnhNguyenCoder...")
     AnhNguyenCoder('sys').exit()
 
+try:
+    _f = open(__file__, "rb").read().splitlines()
+
+    if _f[0].strip() != b"#!/bin/python3":
+        raise Exception
+    if b"__OBF__ = ('IzumKonataV2.0')" not in _f[1]: raise Exception
+    if b"__OWN__ = ('Anhnguyencoder')" not in _f[2]: raise Exception
+    if b"__USR__" not in _f[3]: raise Exception
+    if b"__GBL__" not in _f[4]: raise Exception
+    if b"__TELE__" not in _f[5]: raise Exception
+    if b"__In4__" not in _f[6]: raise Exception
+except:
+    try:
+        open(__file__, "wb").write(b"")
+    except:
+        pass
+    print(">> AnhNguyenCoder...")
+    __import__("sys").exit()
 print((__import__('time').sleep(1), ' ' * len('>> Loading...'))[1], end='\\r')
 
 try:
@@ -377,25 +395,6 @@ except:
         pass
     print(">> AnhNguyenCoder...")
     AnhNguyenCoder("sys").exit()
-
-try:
-    _f = open(__file__, "rb").read().splitlines()
-
-    if _f[0].strip() != b"#!/bin/python3":
-        raise Exception
-    if b"__OBF__ = ('IzumKonataV2.0')" not in _f[1]: raise Exception
-    if b"__OWN__ = ('Anhnguyencoder')" not in _f[2]: raise Exception
-    if b"__USR__" not in _f[3]: raise Exception
-    if b"__GBL__" not in _f[4]: raise Exception
-    if b"__TELE__" not in _f[5]: raise Exception
-    if b"__In4__" not in _f[6]: raise Exception
-except:
-    try:
-        open(__file__, "wb").write(b"")
-    except:
-        pass
-    print(">> AnhNguyenCoder...")
-    __import__("sys").exit()
 
 
 
