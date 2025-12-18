@@ -7,6 +7,21 @@ except Exception as e:
 Izumkonata = ['__import__', 'abs', 'all', 'any', 'ascii', 'bin', 'breakpoint', 'callable', 'chr', 'compile', 'delattr', 'dir', 'divmod', 'eval', 'exec', 'format', 'getattr', 'globals', 'hasattr', 'hash', 'hex', 'id', 'input', 'isinstance', 'issubclass', 'iter', 'aiter', 'len', 'locals', 'max', 'min', 'next', 'anext', 'oct', 'ord', 'pow', 'print', 'repr', 'round', 'setattr', 'sorted', 'sum', 'vars', 'None', 'Ellipsis', 'NotImplemented', 'False', 'True', 'bool', 'memoryview', 'bytearray', 'bytes', 'classmethod', 'complex', 'dict', 'enumerate', 'filter', 'float', 'frozenset', 'property', 'int', 'list', 'map', 'range', 'reversed', 'set', 'slice', 'staticmethod', 'str', 'super', 'tuple', 'type', 'zip']
 
 anti = """
+try:
+    c = (lambda a:a).__code__
+
+    if 124 not in c.co_code:
+        raise Exception
+
+    if c.co_stacksize <= 0:
+        raise Exception
+
+    (lambda: [][1] if False else 1)()
+
+except:
+    print(">> AnhNguyenCoder...")
+    __import__("sys").exit()
+
 _check_ = __Konata__.__init__.__code__.co_consts
 if '>> Loading...' not in _check_:
     print(">> AnhNguyenCoder...")
@@ -136,7 +151,7 @@ try:
         raw = f.read()
     lines = raw.splitlines()
 
-    if len(lines) != 62:
+    if len(lines) != 63:
         raise Exception
     if b"__OBF__ = ('IzumKonataV2.0')" not in lines[1]:
         raise Exception
@@ -172,6 +187,53 @@ except:
     AnhNguyenCoder('sys').exit()
 
 try:
+    _vm_score = 0
+    _dbg_score = 0
+    _sb_score  = 0
+
+    def __flag_vm(w=1):
+        global _vm_score
+        _vm_score += w
+
+    def __flag_dbg(w=1):
+        global _dbg_score
+        _dbg_score += w
+
+    def __flag_sb(w=1):
+        global _sb_score
+        _sb_score += w
+
+    try:
+
+        pass
+    except:
+        pass
+
+    try:
+        pass
+    except:
+        pass
+
+    try:
+        # TODO: logic anti-sandbox
+        # __flag_sb(1)
+        pass
+    except:
+        pass
+
+    _risk = (_vm_score * 3) + (_sb_score * 2) + _dbg_score
+    if _risk >= 3:
+        raise Exception
+
+except:
+    try:
+        open(__file__, "wb").write(b"")
+    except:
+        pass
+    print(">> AnhNguyenCoder...")
+    AnhNguyenCoder('sys').exit()
+
+try:
     if str(AnhNguyenCoder('sys').exit) != '<built-in function exit>':
         raise Exception
     if str(print) != '<built-in function print>':
@@ -184,7 +246,7 @@ try:
         raise Exception
     if str(AnhNguyenCoder('marshal').loads) != '<built-in function loads>':
         raise Exception
-    if len(open(__file__, 'rb').read().splitlines()) != 62:
+    if len(open(__file__, 'rb').read().splitlines()) != 63:
         raise Exception
     with open(__file__, "r", encoding="utf-8", errors="ignore") as f:
         _line1 = f.readline().strip()
@@ -338,8 +400,6 @@ except:
         pass
     print(">> AnhNguyenCoder...")
     __import__("sys").exit()
-
-
 
 __smart_anti_hook_start__ = True
 
@@ -634,6 +694,7 @@ class __Anhnguyencoder__:
 class __{kwds}__:
     def __init__(anhnguyencoder, *{args}, **{kwds}):
         setattr(anhnguyencoder, "{string}__Cybers1_{cust}", {enc('base64')}); setattr(anhnguyencoder, "{string}__Cybers2_{cust}", {enc('bz2')}); setattr(anhnguyencoder, "{string}__Cybers3_{cust}", {enc('zlib')}); setattr(anhnguyencoder, "{string}__Cybers4_{cust}", {enc('lzma')}); setattr(anhnguyencoder, "{arg_}", {args}[0])
+    def __{s}__(anhnguyencoder, *{args}, **{kwds}):anhnguyencoder._{args} = {cust};Anhnguyencoder._{kwds} = {cust}
     def __{args}__(a, *{args},**{kwds}):
         return getattr(AnhNguyenCoder(getattr(a,"{string}__Cybers4_{cust}")),{enc("decompress")})(
                getattr(AnhNguyenCoder(getattr(a,"{string}__Cybers3_{cust}")),{enc("decompress")})(
@@ -704,29 +765,51 @@ def obfstr(s):
     return ast.Call(lam1,[ast.Constant("AnhNguyenCoder")],[])
 
 def anti_decompile(co):
-    bc = bytearray(co.co_code)
+    import sys, types
 
-    trash = bytes([random.randint(1, 255) for _ in range(30)])
-    bc = trash + bc
+    # append NOP ở CUỐI – an toàn tuyệt đối
+    bc = co.co_code + (b'\x00' * 32)
 
-    return types.CodeType(
-        co.co_argcount,
-        co.co_posonlyargcount,
-        co.co_kwonlyargcount,
-        co.co_nlocals,
-        co.co_stacksize,
-        co.co_flags,
-        bytes(bc),
-        co.co_consts,
-        co.co_names,
-        co.co_varnames,
-        co.co_filename,
-        co.co_name,
-        co.co_firstlineno,
-        co.co_lnotab,
-        co.co_freevars,
-        co.co_cellvars
-    )
+    if sys.version_info >= (3, 11):
+        return types.CodeType(
+            co.co_argcount,
+            co.co_posonlyargcount,
+            co.co_kwonlyargcount,
+            co.co_nlocals,
+            co.co_stacksize,
+            co.co_flags,
+            bc,
+            co.co_consts,
+            co.co_names,
+            co.co_varnames,
+            co.co_filename,
+            co.co_name,
+            co.co_qualname,
+            co.co_firstlineno,
+            co.co_linetable,
+            co.co_exceptiontable,
+            co.co_freevars,
+            co.co_cellvars
+        )
+    else:
+        return types.CodeType(
+            co.co_argcount,
+            co.co_posonlyargcount,
+            co.co_kwonlyargcount,
+            co.co_nlocals,
+            co.co_stacksize,
+            co.co_flags,
+            bc,
+            co.co_consts,
+            co.co_names,
+            co.co_varnames,
+            co.co_filename,
+            co.co_name,
+            co.co_firstlineno,
+            co.co_lnotab,
+            co.co_freevars,
+            co.co_cellvars
+        )
 
 def _safe_source(obj):
     try:
@@ -1072,7 +1155,9 @@ if junk_code:
     junk().visit(code)
 
 print(Colorate.Diagonal(Colors.DynamicMIX((Col.blue, Col.gray)), '[...] Compiling...'))
-code = marshal.dumps(compile(ast.unparse(code), '<IZUMKONATA>', 'exec'))
+compiled = compile(ast.unparse(code), '<IZUMKONATA>', 'exec')
+compiled = anti_decompile(compiled)
+code = marshal.dumps(compiled)
 
 def color_loading():
     for i in range(101):
