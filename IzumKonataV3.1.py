@@ -1508,6 +1508,21 @@ user_name = input(Colorate.Diagonal(
     ">> Enter Your Username! [For example: 'AnhNguyenCoder']: "
 ))
 
+sd = input(Colorate.Diagonal(
+    Colors.DynamicMIX((Col.blue, Col.gray)),
+    ">> You Want To Use (1.main | 2.exec | 3.import): "
+)).strip()
+
+if sd == "1":
+    sd = "main"
+elif sd == "2":
+    sd = "exec"
+elif sd == "3":
+    sd = "import"
+else:
+    print(Colorate.Horizontal(Colors.red_to_yellow, ">> Invalid selection!"))
+    sys.exit()
+
 high_security = True if input(Colorate.Diagonal(
     Colors.DynamicMIX((Col.blue, Col.gray)),
     ">> Do you want high security? Yes (Y) | (N) No: "
@@ -1550,7 +1565,7 @@ color_loading()
 print(Colorate.Diagonal(Colors.DynamicMIX((Col.blue, Col.green)), '>> Adding Last Layer << '))
 code = base64.a85encode(bz2.compress(zlib.compress(lzma.compress(code))))
 
-final_usr = f"[Premium - {user_name} - main - Request Protection !]"
+final_usr = f"[Premium - {user_name} - {sd} - Request Protection !]"
 
 usr_crc = 0
 for c in final_usr:
