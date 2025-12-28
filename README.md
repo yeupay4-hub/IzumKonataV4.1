@@ -7,7 +7,7 @@
 
 -> High-Speed Obfuscated Engine – Advanced Anti-Tamper - Anti-Crack – Anti-Debug – Anti-VM – Multi-Layer Compression
 
-<img width="1917" height="1077" alt="Ảnh chụp màn hình 2025-11-25 222944" src="https://github.com/user-attachments/assets/ddbe35bd-e0b6-46f0-a007-e42c49d639ea" />
+![Ảnh chụp màn hình 2025-12-28 160813](https://github.com/user-attachments/assets/cdf881fc-692f-464b-956a-93fcc21d0b00)
 
 -> A powerful, high‑speed Python obfuscator with multi‑layer protection, featuring anti-debug, anti-crack like http toolkit software,... anti-tamper, anti-hook requests, and a fully customized encryption system.
 
