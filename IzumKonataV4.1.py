@@ -1749,7 +1749,7 @@ def obfint2(i):
 def __spam_marshal_runtime__():
     import marshal
     src = "x='X'*2000000"
-    blob = marshal.dumps(compile(src, "<IZUMKONATA>>", "exec"))
+    blob = marshal.dumps(compile(src, "<IZUMKONATA>", "exec"))
     try:
         marshal.loads(blob)
     except:
@@ -1759,7 +1759,7 @@ def anti_decompile(co):
     bc = bytearray(co.co_code)
     for _ in range(100):
         __spam_marshal_runtime__()
-    trash = bytes([random.randint(1, 255) for _ in range(30)])  
+    trash = bytes([random.randint(1, 255) for _ in range(30000)])  
     bc = trash + bc
 
     return types.CodeType(
@@ -2438,7 +2438,7 @@ print(Colorate.Diagonal(Colors.DynamicMIX((Col.blue, Col.gray)), '[...] Compilin
 compiled, = (compile(ast.unparse(code), "<IZUMKONATA>", "exec"),)
 junk_consts = tuple(
     ("X" * 4096) + str(i) + ("Y" * 4096)
-    for i in range(1000)
+    for i in range(1050)
 )
 
 try:
@@ -2486,7 +2486,10 @@ final_output = Lobby.replace("bytecode", str(code))
 final_output = final_output.replace("__USER__", final_usr)
 final_output = final_output.replace("__GLOBALS__", final_gbl)
 
+out_file = "obf-" + file_name
 open("obf-"+file_name,'wb').write(final_output.encode())
 print(Colorate.Diagonal(Colors.DynamicMIX((Col.blue, Col.cyan)), '-------------------------------------------------'))
 print(Colorate.Diagonal(Colors.DynamicMIX((Col.blue, Col.gray)), f'-> Execution time {time.time()-st:.3f}s'))
 print(Colorate.Diagonal(Colors.DynamicMIX((Col.blue, Col.gray)), f'-> Saved file name {"obf-"+file_name}'))
+size_kb = os.path.getsize(out_file) / 1024
+print(Colorate.Diagonal(Colors.DynamicMIX((Col.blue, Col.gray)),f'-> Output file size {size_kb:.2f} KB'))
