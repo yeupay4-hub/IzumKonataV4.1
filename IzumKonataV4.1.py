@@ -1702,7 +1702,9 @@ except:
     AnhNguyenCoder("sys").exit()
 """
 
-BANNER = """                                                      ⠀⠀⠀⠀⠀⢀⡀⠀⠔⢀⡀⠀⢀⠞⢠⠂
+BANNER = """
+FIXES CODE OPTIMIZATION (SORRY USERS, I FORGOT.)
+                                                      ⠀⠀⠀⠀⠀⢀⡀⠀⠔⢀⡀⠀⢀⠞⢠⠂
                                                              ⢸⠀⠘⢰⡃⠔⠩⠤⠦⠤⢀⡀
                                                      ⠀⠀⠀⠀⠀⢀⠄⢒⠒⠺⠆⠈⠀⠀⢐⣂⠤⠄⡀⠯⠕⣒⣒⡀
                                                           ⢐⡡⠔⠁⠆⠀⠀⠀⠀⠀⢀⠠⠙⢆⠀⠈⢁⠋⠥⣀⣀
@@ -2574,6 +2576,64 @@ class junkcode1(ast.NodeTransformer):
             node.body[i] = [gencode1(j)]
         return node
 
+import ast
+
+import ast
+
+class A(ast.NodeTransformer):
+
+    def _clean(self, node):
+        if not isinstance(node, ast.AST):
+            return node
+        self.generic_visit(node)
+        if hasattr(node, "body") and isinstance(node.body, list):
+            node.body = [n for n in node.body if n is not None]
+        return node
+
+    def _strip_doc(self, node):
+        node = self._clean(node)
+        try:
+            if (
+                hasattr(node, "body")
+                and node.body
+                and isinstance(node.body[0], ast.Expr)
+                and isinstance(node.body[0].value, ast.Constant)
+                and isinstance(node.body[0].value.value, str)
+            ):
+                node.body.pop(0)
+        except Exception:
+            pass
+        return node
+
+    def d(self, node): 
+        return self._clean(node)
+
+    def vs(self, node): 
+        return self._strip_doc(node)
+
+    def func(self, node): 
+        return self._strip_doc(node)
+
+    def balamon(self, node): 
+        return self.func(node)
+
+    def idk(self, node): 
+        return self._strip_doc(node)
+
+    visit_Module = _strip_doc
+    visit_FunctionDef = _strip_doc
+    visit_AsyncFunctionDef = _strip_doc
+    visit_ClassDef = _strip_doc
+
+    def visit_Expr(self, node):
+        if (
+            isinstance(node, ast.Expr)
+            and isinstance(node.value, ast.Constant)
+            and isinstance(node.value.value, str)
+        ):
+            return None
+        return node
+
 print(Colorate.Diagonal(Colors.DynamicMIX((Col.blue, Col.gray)), BANNER))
 print()
 
@@ -2632,6 +2692,13 @@ print(Colorate.Diagonal(Colors.DynamicMIX((Col.blue, Col.gray)), '[...] Start En
 st = time.time()
 print(Colorate.Diagonal(Colors.DynamicMIX((Col.blue, Col.gray)), '[...] Executing conversion...'))
 cv().visit(code)
+
+if high_security:
+    print(Colorate.Diagonal(
+        Colors.DynamicMIX((Col.blue, Col.gray)),
+        '[...] Optimizing Code...'
+    ))
+    A().visit(code)
 
 if hide_builtins:
     print(Colorate.Diagonal(Colors.DynamicMIX((Col.blue, Col.gray)), '[...] Hide Builtins...'))
