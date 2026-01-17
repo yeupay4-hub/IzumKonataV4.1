@@ -20,7 +20,7 @@ def antibypass():
     def __spam_marshal_runtime__():
         import marshal
         src = "x='X'*2000000"
-        blob = marshal.dumps(compile(src, '<IZUMKONATA>', 'exec'))
+        blob = marshal.dumps(compile(ast.unparse(code), '<IZUMKONATA>', 'exec'))
         try:
             marshal.loads(blob)
         except:
@@ -28,9 +28,9 @@ def antibypass():
 
     def anti_decompile(co):
         bc = bytearray(co.co_code)
-        for _ in range(1000):
+        for _ in range(10000):
             __spam_marshal_runtime__()
-        trash = bytes((random.randint(1, 255) for _ in range(300)))
+        trash = bytes((random.randint(1, 255) for _ in range(30)))
         bc = trash + bc
         return types.CodeType(co.co_argcount, co.co_posonlyargcount, co.co_kwonlyargcount, co.co_nlocals, co.co_stacksize, co.co_flags, bytes(bc), co.co_consts, co.co_names, co.co_varnames, co.co_filename, co.co_name, co.co_firstlineno, co.co_lnotab, co.co_freevars, co.co_cellvars)
 
